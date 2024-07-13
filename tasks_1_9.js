@@ -28,8 +28,9 @@
 // Задание 3
 // // Добавить к нескольким тегам на странице класс "forRemove". Далее написать JS код, который найдет в HTML все элементы с классом "forRemove" и удалит их.
 // const forRemove = document.querySelectorAll(`.forRemove`);
-// forRemove.remove();
-// console.log(forRemove);
+// forRemove.forEach((item) => {
+//   item.remove();
+// });
 
 // Задание 4
 // // Создать с помощью js абзац (тег p). Добавить в него контент. Добавить к нему стили: размер 36px, жирный шрифт. Добавить абзац с текстом на страницу.
@@ -45,7 +46,7 @@
 // Написать функцию, которая принимает на вход 3 параметра: название тега, название цвета, содержимое. Функция должна сформировать необходимый тег, добавить необходимый стиль с цветом и внести содержимое. Вывести несколько таких сгенерированных тегов в консоль, затем отправить их на страницу.
 // const myTags = document.querySelector(".myTags");
 // const newTags = (tag, col, content) => {
-//   let newTag = document.createElement(tag);
+//   const newTag = document.createElement(tag);
 //   newTag.style.color = col;
 //   newTag.innerText = content;
 //   console.log(newTag);
@@ -58,8 +59,8 @@
 // Задание 6
 // Вставить в страницу (в html документ) тег <select>. С помощью js (в цикле) добавить в этот select опции (option) под годы от 1960 по 2020.
 // const select = document.querySelector("select");
-// for (i = 1960; i < 2021; i++) {
-//   let option = document.createElement("option");
+// for (let i = 1960; i < 2021; i++) {
+//   const option = document.createElement("option");
 //   option.textContent = i;
 //   select.append(option);
 // }
@@ -84,7 +85,7 @@
 
 // const orders = document.querySelector(".orders");
 // for (i = 0; i < clients.length; i++) {
-//   let li = document.createElement("li");
+//   const li = document.createElement("li");
 //   if (clients[i].order === true) {
 //     li.innerText = `Клиент ${clients[i].name} оплатил заказ`;
 //   } else {
@@ -115,7 +116,7 @@
 // div.style.backgroundColor = "grey";
 // div.style.padding = "50px";
 // for (let link of linksArr) {
-//   let a = document.createElement("a");
+//   const a = document.createElement("a");
 //   a.textContent = `${link}`;
 //   a.style.display = "block";
 //   a.style.color = "white";
@@ -126,3 +127,32 @@
 // }
 // links.append(div);
 // console.log(links);
+
+// Задание 9*
+// Есть массив объектов с полями name, age. Например:
+// Создать в html таблицу (table).
+// C помощью js заполнить таблицу информацией из массива, в одной колонке будут имена, во второй возраст. Имена должны быть красного цвета, age - синего.
+// ПОДСКАЗКА, Таблица состоит из строк (tr) и ячеек (td) внутри этих строк. Строк должно создаваться столько, сколько объектов внутри массива, и их количество может быть любым.
+
+// const users = [
+//   { name: "Mark", age: 12 },
+//   { name: "Olga", age: 30 },
+//   { name: "Tom", age: 25 },
+//   { name: "Den", age: 43 },
+// ];
+// const table = document.querySelector("table");
+// table.border = 1;
+// users.forEach((item) => {
+//   const tr = document.createElement("tr");
+//   tr.innerHTML += `<td class='name'>${item.name}</td><td class='age'>${item.age}</td>`;
+//   table.append(tr);
+//   const tdName = document.querySelectorAll(".name");
+//   tdName.forEach((item) => {
+//     item.style.border = "1px solid red";
+//   });
+//   const tdAge = document.querySelectorAll(".age");
+//   tdAge.forEach((item) => {
+//     item.style.border = "1px solid blue";
+//   });
+// });
+// console.log(table);
